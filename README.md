@@ -1,4 +1,4 @@
 IV_GMM
 ======
 
-Repositorio para los archivos de Infraestructura Virtual
+Repositorio para los archivos de Infraestructura Virtual.
