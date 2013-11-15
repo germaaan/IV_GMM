@@ -1,4 +1,4 @@
-# Ejercicio 6:
+# Ejercicios 6:
 ### Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar.
 
 Hay que destacar que todos los pasos a realizar se realizan desde un terminal del sistema fuera de la jaula.
