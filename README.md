@@ -5,3 +5,4 @@ Repositorio para los archivos con los ejercicios desarrollados por Germ√°n Mart√
 
 * [Ejercicios del tema 1](TEMA1/README.md)
 * [Ejercicios del tema 2](TEMA2/README.md)
+* [Ejercicios del tema 3](TEMA3/README.md)
