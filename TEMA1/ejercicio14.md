@@ -1,0 +1,10 @@
+# Ejercicios 14
+### Crear una aplicación en OpenShift y dentro de ella instalar WordPress.
+
+Una vez accedemos a OpenShift, la instalación de un WordPress es realmente sencilla, desde la pestaña de "Create Application" (que como su nombre indica, es desde donde crearemos aplicaciones). Ahora nos encontramos en el paso de elegir la aplicación que vamos a crear (Choose a type of application), bajamos hasta encontrarnos un grupo de aplicaciones agrupadas por el nombre de "Instant App", y entre ella está "WordPress 3.x", así que hacemos clic sobre ella.
+
+Ahora tenemos que configurar la aplicación (Configure and deploy the application). Entre los aspectos configurables tendremos que indicar el URL público de nuestro WordPress, si queremos cambiar el repositorio GitHub con el código fuente y la configuración (viene configuración para un repositorio ejemplo por defecto), y si vamos a usar escalamiento para nuestro sitio web. Con todo esto definido, podemos crear finalmente nuestra aplicación pulsando el botón "Create Application".
+
+Con la aplicación creada, se nos mostrará la información sobre el acceso a la base de datos mediante MySQL y la URL para la conexión. También nos dará el enlace para acceder a nuestra aplicación, teniendo que finalizar la instalación de la misma la primera vez que accedamos, teniendo que introducir el título que tendrá la página, el usuario y la contraseña para el administrador y un correo electrónico para comprobación; además podemos elegir si queremos que la página pueda ser indexada por los motores de los buscadores si marcamos la casilla "Allow search engines to index this site.". Pulsamos el botón "Install WordPress" para finalizar.
+
+Automáticamente, somos llevamos a la página de login, así que introducimos el usuario y contraseña del administrador y ya podemos personalizar nuestro WordPress si queremos, aunque lo primero que voy a hacer es publicar un post para probar el sistema, el enlace de dicho post donde se puede ver el blog funcionando es: http://ultimoejercicio-germaaan.rhcloud.com/?p=5
