@@ -9,4 +9,4 @@ Ahora necesitamos crear un sistema de ficheros perteneciente al usuario "root" q
 
 Para terminar vamos a enjaular a un usuario, para ello tenemos que crear un usuario (`adduser usuario`) y lo enjaulamos con `sudo jk_jailuser -m -j /seguro/jaulas/dorada usuario`. Para poder conectarnos con el shell de la jaula tendremos que acceder al archivo "/seguro/jaulas/dorada/etc/passwd" y cambiar en la línea correspondiente al usuario que hemos enjaulado el shell que usa, pasando de "jk_lsh" a "bash":
 
-![ejer06_img01](https://dl.dropboxusercontent.com/s/gtlc2gesjtjxqpw/ejer06_img01.png)
+![eje06_img01](imagenes/eje06_img01.png)

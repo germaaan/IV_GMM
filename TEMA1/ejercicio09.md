@@ -3,4 +3,4 @@
 
 El modelo de procesador es "Intel(R) Core(TM) i5-2450M". Como podemos ver como resultado de la salida del comando 'egrep '^flags.*(vmx|svm)' /proc/cpuinfo', el flag "vmx" se encuentra entre todos los flag del procesador, por lo que sabemos que el procesador usa tecnología de virtualización a nivel de hardware.
 
-![ejer09_img01](https://dl.dropboxusercontent.com/s/p5ag1lmugz7fczn/ejer09_img01.png)
+![eje09_img01](imagenes/eje09_img01.png)
