@@ -7,7 +7,7 @@ sudo apt-get install linux-image-extra-`uname -r`.
 ```
 Ahora tenemos que agregar las llaves y el repositorio de Docker con los comandos `sudo sh -c "curl https://get.docker.io/gpg | apt-key add -` y `sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list`.
 
-![ejer04_img02](https://dl.dropboxusercontent.com/s/t10ga1a1wetq2ns/ejer04_img02.png)
+![ejer04_img02](imagenes/ejer04_img02.png)
 
 Actualizamos con `sudo apt-get update` e instalamos Docker con `sudo apt-get install lxc-docker`. Para trabajar con Docker, vamos a meternos en su terminal con el comando `sudo docker run -i -t ubuntu /bin/bash`. Para salirnos introduciríamos `exit`.
 
