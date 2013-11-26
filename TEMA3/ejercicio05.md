@@ -42,21 +42,22 @@ for i in {1..10..1}
 
 Una vez hayan finalizado las pruebas, fijándonos sobretodo en el tiempo que tardan las pruebas en ejecutarse completamente, la cantidad de solicitudes que son atendidas por segundo y la velocidad de transferencia con la que se realizan dichas solicitudes, hemos obtenido los siguientes resultados:
 
-|            |                      |      nginx (jaula)      |                                |   |                      |    nginx (contenedor)   |                                |
-|:----------:|:--------------------:|:-----------------------:|:------------------------------:|:-:|:--------------------:|:-----------------------:|:------------------------------:|
-|            | Tiempo ejecución (s) | Solicitudes por segundo | Velocidad transferencia (KB/s) |   | Tiempo ejecución (s) | Solicitudes por segundo | Velocidad transferencia (KB/s) |
-|  Prueba 1  |        59,281        |         16868,70        |             9043,86            |   |        81,518        |         12267,27        |             6528,97            |
-|  Prueba 2  |        62,224        |         16070,97        |             8616,18            |   |        78,258        |         12778,27        |             6800,93            |
-|  Prueba 3  |        64,783        |         15436,20        |             8275,85            |   |        61,809        |         16178,93        |             8610,86            |
-|  Prueba 4  |        54,414        |         18377,72        |             9852,90            |   |        60,914        |         16416,53        |             8737,31            |
-|  Prueba 5  |        49,227        |         20314,22        |            10891,12            |   |        60,948        |         16407,31        |             8732,41            |
-|  Prueba 6  |        48,654        |         20553,21        |            11019,25            |   |        62,461        |         16010,11        |             8521,01            |
-|  Prueba 7  |        49,459        |         20218,63        |            10839,87            |   |        70,132        |         14258,77        |             7588,90            |
-|  Prueba 8  |        49,375        |         20253,15        |            10858,38            |   |        81,134        |         12325,35        |             6559,88            |
-|  Prueba 9  |        48,507        |         20615,53        |            11052,66            |   |        79,725        |         12543,07        |             6675,76            |
-|  Prueba 10 |        58,276        |         17159,65        |             9199,85            |   |        61,366        |         16295,59        |             8672,94            |
-|            |                      |                         |                                |   |                      |                         |                                |
-|    Media   |        54,420        |        18586,798        |            9964,992            |   |        69,827        |        14548,120        |            7742,897            |
-| Desviación |         5,933        |         1941,497        |            1040,900            |   |         8,844        |         1793,807        |             954,711            |
+|             |                      |      nginx (jaula)      |                                |                      |    nginx (contenedor)   |                                |
+|:-----------:|:--------------------:|:-----------------------:|:------------------------------:|:--------------------:|:-----------------------:|:------------------------------:|
+|             | Tiempo ejecución (s) | Solicitudes por segundo | Velocidad transferencia (KB/s) | Tiempo ejecución (s) | Solicitudes por segundo | Velocidad transferencia (KB/s) |
+|:-----------:|:--------------------:|:-----------------------:|:------------------------------:|:--------------------:|:-----------------------:|:------------------------------:|
+|   Prueba 1  |        59,281        |         16868,70        |             9043,86            |        81,518        |         12267,27        |             6528,97            |
+|   Prueba 2  |        62,224        |         16070,97        |             8616,18            |        78,258        |         12778,27        |             6800,93            |
+|   Prueba 3  |        64,783        |         15436,20        |             8275,85            |        61,809        |         16178,93        |             8610,86            |
+|   Prueba 4  |        54,414        |         18377,72        |             9852,90            |        60,914        |         16416,53        |             8737,31            |
+|   Prueba 5  |        49,227        |         20314,22        |            10891,12            |        60,948        |         16407,31        |             8732,41            |
+|   Prueba 6  |        48,654        |         20553,21        |            11019,25            |        62,461        |         16010,11        |             8521,01            |
+|   Prueba 7  |        49,459        |         20218,63        |            10839,87            |        70,132        |         14258,77        |             7588,90            |
+|   Prueba 8  |        49,375        |         20253,15        |            10858,38            |        81,134        |         12325,35        |             6559,88            |
+|   Prueba 9  |        48,507        |         20615,53        |            11052,66            |        79,725        |         12543,07        |             6675,76            |
+|  Prueba 10  |        58,276        |         17159,65        |             9199,85            |        61,366        |         16295,59        |             8672,94            |
+|             |                      |                         |                                |                      |                         |                                |
+|    Media    |        54,420        |        18586,798        |            9964,992            |        69,827        |        14548,120        |            7742,897            |
+| Desviación  |         5,933        |         1941,497        |            1040,900            |         8,844        |         1793,807        |             954,711            |
 
 Observando los datos de desviación vemos que el dato más fiable para guiarnos y decidir que servidor da el mejor rendimiento es el tiempo de ejecución, y aunque en este caso la diferencia no es muy amplia (seguramente porque el número de conexiones es relativamente bajo, aunque esta diferencia podría cambiar considerablemente si elevasemos bastante el número de las mismas) vemos que el mejor rendimiento lo obtenemos con el servidor instalado en la jaula. Seguramente uno de los factores que hacen que se obtenga este resultado, es que la jaula está directamente "conectada" a la misma interfaz de red que el sistema anfitrión, mientras que el contenedor se conecta a través de una interfaz virtual que para comunicarse internamente es lo que este provocando este retardo cuando se producen las solicitudes de conexión al servidor.
