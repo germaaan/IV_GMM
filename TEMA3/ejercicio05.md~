@@ -43,8 +43,8 @@ for i in {1..10..1}
 Una vez hayan finalizado las pruebas, fijándonos sobretodo en el tiempo que tardan las pruebas en ejecutarse completamente, la cantidad de solicitudes que son atendidas por segundo y la velocidad de transferencia con la que se realizan dichas solicitudes, hemos obtenido los siguientes resultados:
 
 |            |           |    nginx    |               |   |           |     nginx    |               |
-|:          :|          :|:  (jaula)  :|:             :|: :|          :|:(contenedor):|:             :|
-|------------|-----------|-------------|---------------|---|-----------|--------------|---------------|
+|            |           |   (jaula)   |               |   |           | (contenedor) |               |
+|------------|-----------|:-----------:|---------------|---|-----------|:------------:|---------------|
 |            |   Tiempo  | Solicitudes |   Velocidad   |   |   Tiempo  |  Solicitudes |   Velocidad   |
 |            | ejecución |     por     | transferencia |   | ejecución |      por     | transferencia |
 |            |    (s)    |   segundo   |     (KB/s)    |   |    (s)    |    segundo   |     (KB/s)    |
