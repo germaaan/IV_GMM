@@ -1,4 +1,4 @@
-# Índice de ejercicios del Tema 2:
+# Índice de ejercicios del Tema 2. Técnicas de virtualización
 
 * [Ejercicio 1](ejercicio01.md)
 * [Ejercicio 2](ejercicio02.md)
