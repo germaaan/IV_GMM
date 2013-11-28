@@ -1,4 +1,4 @@
-# Índice de ejercicios del Tema 1:
+# Índice de ejercicios del Tema 1: Introducción a la infraestructura virtual: concepto y soporte físico
 
 * [Ejercicio 1](ejercicio01.md)
 * [Ejercicio 2](ejercicio02.md)
