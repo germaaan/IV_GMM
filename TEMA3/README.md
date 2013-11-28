@@ -1,4 +1,4 @@
-# Índice de ejercicios del Tema 3:
+# Índice de ejercicios del Tema 3. Virtualización ligera usando contenedores
 
 * [Ejercicio 1](ejercicio01.md)
 * [Ejercicio 2](ejercicio02.md)
