@@ -3,6 +3,7 @@
 
 En mi disco duro tengo instalado Windows 7 y Ubuntu 13.10, para ello tengo el espacio en el disco duro particionado en 2 particiones primarias y una extendida con 3 volúmenes lógicos en su interior. Las 2 particiones primarias corresponden a la partición que se crea durante la instalación de Windows 7 para tareas de arranque y seguridad (**sda1, ntfs, 100 MiB**), la otra partición primaria es la que contiene los archivos del sistema Windows 7 instalado (**sda2, ntfs, 70 Gib**). En cuanto a la partición extendida (**sda3, 395.66 Gib**), el primer volumen lógico corresponde a la partición que uso para almacenar todos mis archivos personales (**sda5, ntfs, 350.66 GiB**), el siguiente volumen lógico es el área de intercambio que usa Ubuntu en su funcionamiento (**sda6, linux-swap, 2 GiB**), y la última partición tiene los archivos del sistema Ubuntu 13.10 instalado (**sda7, ext4, 43 GiB**).
 
+![eje01_img01](imagenes/eje01_img01.png)
 
 ### Si tienes acceso en tu escuela o facultad a un ordenador común para las prácticas, ¿qué almacenamiento físico utiliza?
 
@@ -11,4 +12,7 @@ En mi disco duro tengo instalado Windows 7 y Ubuntu 13.10, para ello tengo el es
 
 ### Buscar ofertas SAN comerciales y comparar su precio con ofertas locales (en el propio ordenador) equivalentes.
 
+He encontrar 2 ofertas de SAN comerciales de HP: [HP P2000 G3 FC DC SMB SAN Starter Kit-AP847B](http://h71016.www7.hp.com/MiddleFrame.asp?page=config&ProductLineId=450&FamilyId=2569&BaseId=39751&oi=E9CED&BEID=19701&SBLID=) y [HP P2000 G3 FC DC Virtual SAN Starter Kit-AP848B](http://h71016.www7.hp.com/MiddleFrame.asp?page=config&ProductLineId=450&FamilyId=2569&BaseId=39693&oi=E9CED&BEID=19701&SBLID=). El primero con un **precio** de **16.500$ (11.978'22€)** tiene un interfaz con una conexión basada en un **canal de fibra** a **8 Gbit/s** y **12 unidades SAS/SATA LFF de 3'5 pulgadas** con una capacidad total de **48 TB**, el con segundo **precio** de **24.170$ (17.546'28€)** tiene tambien un **canal de fibra** a **8 Gbit/s** Y **24 unidades SAS SFF de 2'5 pulgadas** con una capacidad total de **28'8 TB**.
+
+Para tener un capacidad de almacenamiento local equivalente:
 
