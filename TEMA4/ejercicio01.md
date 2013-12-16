@@ -19,6 +19,7 @@ Para realizar la comparativa he elegido los siguientes discos duros: [WD Red 4 T
 Pero además necesitariamos adquirir carcasas de red **(NAS)** en la que conectar dichos discos duros como podría ser [Synology DiskStation DS1813+ NAS 8HD](http://www.pccomponentes.com/synology_diskstation_ds1813__nas_8hd.html) que con un precio de **899€**, necesitariamos 2 en el caso de las unidades de 3'5 pulgadas o 4 en el caso de las unidades de 2'5 pulgadas. 
 
 En la tabla vemos una comparativa de precio entre ambos dispositivos:
+
 |                   |   | HP AP847B | WD40EFRX |   | HP AP848B | WD10JFCX |
 |:-----------------:|---|:---------:|:--------:|---|:---------:|:--------:|
 |   Capacidad (TB)  |   |     48    |     4    |   |    28'8   |     1    |
