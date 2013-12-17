@@ -5,10 +5,6 @@ En mi disco duro tengo instalado Windows 7 y Ubuntu 13.10, para ello tengo el es
 
 ![eje01_img01](imagenes/eje01_img01.png)
 
-### Si tienes acceso en tu escuela o facultad a un ordenador común para las prácticas, ¿qué almacenamiento físico utiliza?
-
-
-
 
 ### Buscar ofertas SAN comerciales y comparar su precio con ofertas locales (en el propio ordenador) equivalentes.
 
