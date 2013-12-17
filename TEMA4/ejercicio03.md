@@ -35,4 +35,4 @@ Para poder montarlos deberemos primero convertir los archivos de imagen en dispo
 
 Ahora ya podremos montar la imagen como el dispositivo **loop** correspondiente (`sudo mount /dev/loop0 /mnt/monta1/`), comprobando que se ha montado correctamente (`df -h`):
 
-![eje03_img04](imagenes/eje04_img03.png)
+![eje03_img04](imagenes/eje03_img04.png)
