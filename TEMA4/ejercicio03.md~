@@ -45,18 +45,6 @@ Pulsamos el **botón más a la derecha** que está en línea con **"Controller: 
 
 ![eje03_img06](imagenes/eje03_img06.png)
 
-Veremos como se ha añadido una nueva unidad de disco duro. En su información podemos ver que se trata de un disco duro que usa **"Almacenamiento reservado dinámicamente** (ejemplo de provisionamiento delgado), siendo su **tamaño actual 1 KB** y su **tamaño virtual 100 MB**; además, su ubicación es nuestro archivo de imagen:
+Veremos como se ha añadido una nueva unidad de disco duro, siendo su ubicación nuestro archivo de imagen:
 
 ![eje03_img07](imagenes/eje03_img07.png)
-
-Si arrancamos la máquina virtual, nos reconocerá una nueva unidad de disco duro, pero sin inicializar ni formato alguno:
-
-![eje03_img08](imagenes/eje03_img08.png)
-
-Así que lo inicializamos y le damos formato para que se reconozca como un disco duro usable:
-
-![eje03_img09](imagenes/eje03_img09.png)
-
-Y ya podemos usarlo en nuestra máquina virtual como otra unidad de disco duro más:
-
-![eje03_img10](imagenes/eje03_img10.png)
