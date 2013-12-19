@@ -7,10 +7,14 @@ Ya que tenemos Ceph instalado, ahora toca configurarlo. Lo primero que haremos s
 sudo mkdir -p /srv/ceph/{osd,mon,mds}
 ```
 
-Seguidamente creamos el archivo de configuración **/etc/ceph/ceph.conf**, configurando el monitor de objetos (**mon**), el servidor de metadatos (**mds**) y el dispositivo servidor de objetos (**osd**). Para esto introducimos lo siguiente:
+Seguidamente creamos el archivo de configuración **/etc/ceph/ceph.conf**, configurando el monitor de objetos (**mon**), el servidor de metadatos (**mds**) y el dispositivo servidor de objetos (**osd**). Por defecto el modo de autencación Cephx viene activado por defecto, y si no lo configuramos y creamos un keyring como indican en su [página](http://ceph.com/docs/master/rados/operations/authentication/) tendremos problemas cuando vayamos a montar Ceph al final del proceso, como no he conseguido configurar Cephx, he optado por desactivarlo para no tener problemas (las 4 primeras líneas de la sección **[global]** que comienzan con la palabra **auth**). Por lo que la configuración utilizada es la siguiente:
 
 ```
 [global]
+	auth cluster required = none
+	auth service required = none
+	auth client required = none
+	auth supported = none
 	log file = /var/log/ceph/$name.log
 	pid file = /var/run/ceph/$name.pid
 [mon]
@@ -29,6 +33,7 @@ Seguidamente creamos el archivo de configuración **/etc/ceph/ceph.conf**, confi
 	host = germaaan-pc
 	xfs devs = /dev/loop0
 ```
+
 
 Necesitamos crear un sistema bucle con formato con sistema **xfs** para que haga la función de dispositivo servidor de objetos (el que hemos indicado en el archivo de configuración como **/dev/loop0**/):
 
@@ -70,11 +75,12 @@ sudo ceph -s
 
 ![eje06_img04](imagenes/eje06_img04.png)
 
-
-Y finalmente creamos el directorio donde lo vamos a montar y lo montamos:
+Y finalmente creamos el directorio donde lo vamos a montar, lo montamos y comprobamos que se ha montado:
 
 ```
+sudo mkdir /mnt/ceph
 sudo mount -t ceph germaaan-pc:/ /mnt/ceph
+df
 ```
 
-Pero no funciona, da como resultado `mount error 5 = Input/output error`.
+![eje06_img05](imagenes/eje06_img05.png)
