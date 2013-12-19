@@ -68,6 +68,9 @@ Comprobamos si se ha iniciado correctamente comprobando el estado del Ceph:
 sudo ceph -s 
 ```
 
+![eje06_img04](imagenes/eje06_img04.png)
+
+
 Y finalmente creamos el directorio donde lo vamos a montar y lo montamos:
 
 ```
