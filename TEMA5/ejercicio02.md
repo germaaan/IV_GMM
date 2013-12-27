@@ -91,9 +91,9 @@ sudo qemu-system-x86_64 -boot order=c -drive file=~/qemu/hdd-debian.img,if=virti
 
 ![eje02_img12](imagenes/eje02_img12.png)
 
-Debería arrancar, pero no arranca y no funciona el raton.
-
 **Nota**: si QEMU indica en la barra de título que la máquina virtual está en estado **"Paused"** por el motivo que sea (en mi caso fue que el ordenador se quedó sin espacio en el disco duro), para reanudarla tenemos que acceder al monitor mediante la combinación de teclas **"Control + Alt + 2"** e introducir en el terminal **"cont"**. Pulsamos **"Control + Alt + 1"** para volver a la ejecución de la máquina virtual)
+
+**Nota 2**: al cargar con QEMU las distribuciones ligeras no funciona el ratón y otras más pesadas como Debian 64 bits una vez instalado no termina de arrancar; sin embargo, la máquina virtual KVM/QEMU creada en el ejercicio 4 con Lubuntu 32 bits si funciona a la perfección, así que posiblemente sea algún tema de incompatibilidad.
 
 ### 2. Hacer un ejercicio equivalente usando otro hipervisor como Xen, VirtualBox o Parallels.
 
