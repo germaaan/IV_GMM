@@ -7,13 +7,6 @@ if [ $# -lt 3 ]; then
 	exit 1
 fi
 
-echo $1
-echo $1_2
-echo $2
-echo $2_2
-echo $3
-echo $3_2
-
 time1+=$( { time `cp $1 $1_2`; } 2>&1 )
 vel1=$( bc <<<"scale=2; 200/$time1" )
 time2+=$( { time `cp $1 $2_2`; } 2>&1 )
