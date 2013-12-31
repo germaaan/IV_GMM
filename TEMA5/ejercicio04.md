@@ -36,7 +36,7 @@ sudo apt-get install vinagre
 
 Antes de conectarnos a la máquina virtual tenemos que conocer la dirección de la **interfaz NAT** que provee de acceso al exterior a **KVM**, la interfaz **"virbr0"**, en mi caso su dirección es **192.168.122.1** (`ifconfig virbr0`).
 
-![eje04_img03](imagenes/eje04_img03.png)
+![eje04_img04](imagenes/eje04_img04.png)
 
 Y nos conectamos a la máquina virtual mediante `vinagre 192.168.122.1:5901 &`:
 
