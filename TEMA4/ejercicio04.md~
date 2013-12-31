@@ -21,7 +21,7 @@ df -h
 
 ![eje04_img01](imagenes/eje04_img01.png)
 
-Para comparar las prestaciones de entrada/salida, creamos 1 archivo de 200 MB con el comando `dd` usando el archivo `/dev/urandom`, ahora creamos otras dos copias de dicho archivo y las copiamos a las respectivas carpetas de cada uno de los sistemas en bucle:
+Para comparar las prestaciones de entrada/salida, creamos 1 archivos de 200 MB con el comando `dd` usando el archivo `/dev/urandom`, ahora creamos otras dos copias de dicho archivo y las copiamos a las respectivas carpetas de cada uno de los sistemas en bucle:
 
 ```
 dd if=/dev/urandom of=arch_sist bs=191 count=1048576

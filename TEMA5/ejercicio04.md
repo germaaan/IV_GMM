@@ -20,13 +20,13 @@ qemu-system-x86_64 -boot order=c -drive file=~/qemu/hdd-lubuntu.img,if=virtio -m
 
 ![eje04_img02](imagenes/eje04_img02.png)
 
-Paramos la ejecución de la máquina virtual y la volvemos a arrancar, pero indicando que vamos a arrancarla dentro de un servidor VNC (`-vnc :1`). Para simplificar indicaderemos un nombre para la máquina que también podremos usar para conectarnos mediante VNC (`-name lubuntu`):
+Paramos la ejecución de la máquina virtual y la volvemos a arrancar, pero indicando que vamos a arrancarla dentro de un servidor **VNC** (`-vnc :1`). Indicaderemos un nombre para la máquina que nos ayude a identificarla más fácilmente (`-name lubuntu`):
 
 ```
 qemu-system-x86_64 -boot order=c -drive file=~/qemu/hdd-lubuntu.img,if=virtio -m 512M -name lubuntu -vnc :1
 ```
 
-Para conectarnos a la máquina necesitaremos un cliente VNC, si tenemos instalado Ubuntu como sistema operativo anfitrión, así que voy a instalar **vinagre**:
+Para conectarnos a la máquina necesitaremos un cliente VNC, así que voy a instalar **vinagre**:
 
 ```
 sudo apt-get install vinagre
@@ -34,6 +34,26 @@ sudo apt-get install vinagre
 
 ![eje04_img03](imagenes/eje04_img03.png)
 
-Y nos conectamos a la máquina virtual mediante `vinagre lubuntu:5901 &`, pero nos nuestra un error **"Conexión cerrada. Se cerró la conexión con el equipo lubuntu::5901."**
+Antes de conectarnos a la máquina virtual tenemos que conocer la dirección de la **interfaz NAT** que provee de acceso al exterior a **KVM**, la interfaz **"virbr0"**, en mi caso su dirección es **192.168.122.1** (`ifconfig virbr0`).
 
-![eje04_img04](imagenes/eje04_img04.png)
+![eje04_img03](imagenes/eje04_img03.png)
+
+Y nos conectamos a la máquina virtual mediante `vinagre 192.168.122.1:5901 &`:
+
+![eje04_img05](imagenes/eje04_img05.png)
+
+Ahora queremos conectarnos mediante **SSH**, aunque primero tenemos que aclarar como funciona la interconexión de redes entre KVM/QEMU y el sistema anfitrión. A no ser que indiquemos lo contrario, QEMU por defecto emula una tarjeta de red simple que hace de puente a través de la interfaz **"virbr0"** hacía la conexión de red del anfitrión, permitiéndonos el acceso a los recursos de red (como **Internet**), pero a la vez funcionando como un sistema firewall que no permite cualquier tráfico entrante. Además de todo esto, los únicos protocolos soportados son **TCP** y **UDP**, por lo que si pensamos en comprobar si hay conexión entre ambos sistemas mediante un **ping** (protocolo **ICMP**), podemos llevarnos la errónea idea de que no hay conexión entre la máquina virtual y el host anfitrión.
+
+Teniendo en cuenta lo anterior, para permitir conexiones de red al sistema de la máquina virtual tenemos que redirigir un puerto en el sistema anfitrión a un puerto en el sistema virtual. En caso de **SSH**, el puerto usado es el **22**, así que vamos a tomar por ejemplo el puerto **TCP 2222** del sistema anfitrión y lo vamos a redirigir al puerto del sistema virtual **22**. Para hacer esto tenemos que añadir el argumento `-redir tcp:2222::22`.
+
+```
+qemu-system-x86_64 -boot order=c -drive file=~/qemu/hdd-lubuntu.img,if=virtio -m 512M -name lubuntu -redir tcp:2222::22
+```
+
+Ahora, simplemente conectándonos por SSH al puerto 2222 de nuestro host local, estaremos conectándonos al puerto 22 de nuestro host virtual:
+
+```
+ssh -p 2222 germaaan@localhost
+```
+
+![eje04_img06](imagenes/eje04_img06.png)
