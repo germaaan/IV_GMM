@@ -52,4 +52,4 @@ Vamos a introducir los datos obtenidos en la siguiente tabla:
 |          |              |              |                  |                  |
 | PROMEDIO |     8'645    |     8'295    |      23'416      |      24'496      |
 
-Como vemos si se ve una mejora, aunque bastante pequeña (de entorno al 4%). Es posible que esta diferencia de rendimiento aumentara en función de un uso más intenso y de unos tamaños de datos mayores.
+Como vemos si se aprecia una mejora, aunque bastante pequeña (de entorno al 4%). Es posible que esta diferencia de rendimiento aumentara en función de un uso más intenso y de unos tamaños de datos mayores.
