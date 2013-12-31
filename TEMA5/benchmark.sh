@@ -10,5 +10,5 @@ fi
 time1+=$( { time `cp $1 $1_2`; } 2>&1 )
 vel1=$( bc <<<"scale=2; 200/$time1" )
 
-echo -e "\nResultados operaciones entrada/salida: $time1 segundos, $vel1 MB/s"
-echo -e "=====================================\n"
+echo "Resultados operaciones entrada/salida: $time1 segundos, $vel1 MB/s"
+echo "====================================="
