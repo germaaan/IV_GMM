@@ -9,3 +9,4 @@ Repositorio para los archivos con los ejercicios desarrollados por Germán Mart�
 * [Ejercicios del seminario Ruby](RUBY/README.md)
 * [Ejercicios del Tema 4: Almacenamiento virtual](TEMA4/README.md)
 * [Ejercicios del Tema 5: Uso de sistemas de virtualización](TEMA5/README.md)
+* [Ejercicios del Tema 6: Gestión de configuraciones](TEMA6/README.md)
