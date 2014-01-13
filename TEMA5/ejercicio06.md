@@ -43,7 +43,7 @@ sudo juju status
 
 ![eje06_img06](imagenes/eje06_img06.png)
 
-Una vez esté listo podemos acceder a él desde el navegador mediante la dirección [juju-azure-h96spub1m4.cloudapp.net](juju-azure-h96spub1m4.cloudapp.net). El la contraseña para acceder como el usuario **"user-admin"** es el valor de **"admin-secret"** en el archivo de configuración **"~/.juju/environments.yaml"**.
+Una vez esté listo podemos acceder a él desde el navegador mediante la dirección [juju-azure-h96spub1m4.cloudapp.net](http://juju-azure-h96spub1m4.cloudapp.net). El la contraseña para acceder como el usuario **"user-admin"** es el valor de **"admin-secret"** en el archivo de configuración **"~/.juju/environments.yaml"**.
 
 ![eje06_img07](imagenes/eje06_img07.png)
 
@@ -63,7 +63,7 @@ El problema está en que esto intentará crear una nueva máquina virtual, lo qu
 
 ![eje06_img11](imagenes/eje06_img11.png)
 
-Si accedemos otra vez a [juju-azure-h96spub1m4.cloudapp.net](juju-azure-h96spub1m4.cloudapp.net), vemos que ahora nginx aparece en verde, por lo que ya está en ejecución, como también indicado `sudo juju status`.
+Si accedemos otra vez a [juju-azure-h96spub1m4.cloudapp.net](http://juju-azure-h96spub1m4.cloudapp.net), vemos que ahora nginx aparece en verde, por lo que ya está en ejecución, como también indicado `sudo juju status`.
 
 ![eje06_img12](imagenes/eje06_img12.png)
 
