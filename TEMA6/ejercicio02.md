@@ -64,7 +64,7 @@ end
 
 Esta receta creará el directorio **"/home/germaaan/IV"** y en su interior el archivo **"README.md"**, dándole la propiedad al usuario **"germaaan"**, asignándole ese mismo usuario y permisos de lectura, escritura y ejecución para su dueño, solo lectura y escritura para los miembros del mismo grupo, y finalmente, solo permisos de lectura para el resto de usuarios.
 
-En el caso de las recetas, para instalar un paquete su contenido es mucho más simple, simplemente deberemos escribir la línea **"package 'PAQUETE'"** para instalar el paquete indicado.
+En el caso de las recetas para instalar un paquete, su contenido es mucho más simple, simplemente deberemos escribir la línea **"package 'PAQUETE'"** para instalar el paquete indicado.
 
 * Archivo **default.rb** para instalar **nginx**:
 
