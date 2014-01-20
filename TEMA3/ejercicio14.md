@@ -1,4 +1,4 @@
-# Ejercicio 13
+# Ejercicio 14
 ### Crear una imagen con las herramientas necesarias para DAI sobre un sistema operativo de tu elección.
 
 Voy a crear una imagen de Ubuntu con todas las herramientas que hemos usado durante las prácticas de la asignatura de DAI. Para crear esta imagen voy a usar un Dockerfile que me cree con la imagen con los siguientes paquetes instalados:
