@@ -66,4 +66,24 @@ sudo docker login
 sudo docker push germaaan/ubuntu_dai
 ```
 
-Otra opción podría ser añadir desde un repositorio GitHub, con lo que así veríamos que la imagen añadida sería referida como **"trusted repository**" que debería dar más confianza a la hora de descargarlo...
+![eje14_img04](imagenes/eje14_img04.png)
+
+Una vez haya terminado de subirse la imagen, su información estará disponible en esta [página](https://index.docker.io/u/germaaan/ubuntu_dai/), pudiendo instalarla directamente si introducimos el comando `sudo docker pull germaaan/ubuntu_dai`.
+
+![eje14_img05](imagenes/eje14_img05.png)
+
+Otra opción podría ser añadir desde un repositorio GitHub, con lo que así veríamos que la imagen añadida sería referida como **"trusted repository**" que debería dar más confianza a la hora de descargarlo, ya que es construida por el propio sistema de Docker usando nuestro Dockerfile en el repositorio. Esto lo podemos hacer desde [aquí](https://index.docker.io/builds/github/select/) siempre que estemos debidamente registrados y con nuestra cuenta de GitHub vinculada, nos aparecerán todos nuestros repositorios, teniendo seleccionar el que queramos usar para crear la imagen:
+
+![eje14_img06](imagenes/eje14_img06.png)
+
+Una vez seleccionada la imagen, añadimos su parámetros de configuración como son la rama principal de la que estar atenta a cambios, el nombre del repositorio, la etiqueta para docker y la localización del Dockerfile.
+
+![eje14_img07](imagenes/eje14_img07.png)
+
+Ya está la imagen de confianza creada, solo falta que sea construida por Docker mediante el Dockerfile del repositorio para que sea totalmente válida, una vez que haya sido construida ya podrá ser instalado usando `sudo docker pull germaaan/ubuntu-dai-github`. Podemos comprobar el estado de la imagen desde la sección [**"Trusted Builds/Build Status"**](https://index.docker.io/builds/status/).
+
+![eje14_img08](imagenes/eje14_img08.png)
+
+En cualquier caso la [página](https://index.docker.io/u/germaaan/ubuntu-dai-github/) de la imagen estará disponible desde el mismo momento que creemos la imagen de confianza.
+
+![eje14_img09](imagenes/eje14_img09.png)
