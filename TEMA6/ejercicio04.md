@@ -43,7 +43,7 @@ sudo apt-get install ansible
 
 ![eje04_img05](imagenes/eje04_img05.png)
 
-Antes de poder usar Ansire, tenemos que crear un fichero inventario con todas las máquinas controladas por la máquina anfitriona (indicando la dirección de cada una de las máquinas), dicho archivo lo voy a crear con el nombre **"ansible_hosts"** y lo situo en la carpeta personal **"~/"**. Como la ruta por defecto de este archivo es **/etc/ansible/hosts**, cambiaré el valor de la variable **"ANSIBLE_HOSTS"** indicando el camino al nuevo archivo de configuración. Para comprobar que todo funciona correctamente haremos un **ping** a la máquina virtual con **ansible**.
+Antes de poder usar Ansible, tenemos que crear un fichero inventario con todas las máquinas controladas por la máquina anfitriona (indicando la dirección de cada una de las máquinas), dicho archivo lo voy a crear con el nombre **"ansible_hosts"** y lo situo en la carpeta personal **"~/"**. Como la ruta por defecto de este archivo es **/etc/ansible/hosts**, cambiaré el valor de la variable **"ANSIBLE_HOSTS"** indicando el camino al nuevo archivo de configuración. Para comprobar que todo funciona correctamente haremos un **ping** a la máquina virtual con **ansible**.
 
 * **ansible_hosts**:
 
