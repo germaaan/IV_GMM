@@ -55,7 +55,7 @@ germaaansible.cloudapp.net
 ```
 export ANSIBLE_HOSTS=~/ansible_hosts
 echo $ANSIBLE_HOSTS
-ansible azure -u germaaan -m ping     // No necesito la opción `--ask-pass` al haber configurado el acceso sin contraseña
+ansible azure -u germaaan -m ping     // No necesito la opción `--ask-pass`, configurado el acceso sin contraseña
 ```
 
 ![eje04_img06](imagenes/eje04_img06.png)
