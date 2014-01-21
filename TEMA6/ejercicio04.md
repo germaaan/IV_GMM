@@ -55,7 +55,7 @@ germaaansible.cloudapp.net
 ```
 export ANSIBLE_HOSTS=~/ansible_hosts
 echo $ANSIBLE_HOSTS
-ansible azure -u germaaan -m ping
+ansible azure -u germaaan -m ping     // No necesito la opción `--ask-pass` al haber configurado el acceso sin contraseña
 ```
 
 ![eje04_img06](imagenes/eje04_img06.png)
@@ -72,6 +72,7 @@ La aplicación está en este [repositorio](https://github.com/germaaan/dai_pract
 
 ```
 ansible azure -m git -a "repo=https://github.com/germaaan/dai_practica_4.git dest=~/dai_practica_4 version=HEAD"
+// Me ahorro la opción `-u germaaan` porque el nombre de usuario es el mismo en ambas máquinas
 ```
 
 ![eje04_img08](imagenes/eje04_img08.png)
