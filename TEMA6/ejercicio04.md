@@ -60,7 +60,7 @@ ansible azure -u germaaan -m ping     // No necesito la opción `--ask-pass`, co
 
 ![eje04_img06](imagenes/eje04_img06.png)
 
-Aunque vayamos a desplegar la aplicación usando **ansible**, este solo se encarga de la configuración, pero **git** tiene que estar instalado en la máquina remota, así que sin más lo instalamos.
+Aunque vayamos a desplegar la aplicación usando **ansible**, este solo se encarga de la configuración, pero **git** tiene que estar instalado en la máquina remota, así que sin más nos volvemos a conectar a ella mediante SSH y lo instalamos (si no lo hemos hecho antes, deberíamos recargar la lista de paquetes)
 
 ```
 sudo apt-get install git
