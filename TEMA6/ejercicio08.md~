@@ -15,7 +15,7 @@ vagrant reload
 
 ![eje08_img01](imagenes/eje08_img01.png)
 
-Para indicar que vamos a usar provisionamiento mediante Ansible tenemos realizar la configuración sobre el provisionador **ansible**, con la directiva **playbook** indicamos el nombre y la ruta del playbook que vamos a usar para realizar la configuración. Según la documentación, no es necesario indicar un archivo de inventario, Vagrant genera uno para cada uno de las máquinas virtuales que controla, pero he podido comprobar que eso no es así como parece a simple vista, así que es necesario almacenar en la variable **ANSIBLE_HOSTS** la ruta del archivo de inventario, en mi caso `export ANSIBLE_HOSTS=~/ansible_hosts`.
+Para indicar que vamos a usar provisionamiento mediante Ansible tenemos realizar la configuración sobre el provisionador **ansible**, con la directiva **playbook** indicamos el nombre y la ruta del playbook que vamos a usar para realizar la configuración. Según la documentación, no es necesario indicar un archivo de inventario, Vagrant genera uno para cada uno de las máquinas virtuales que controla.
 
 ```
 Vagrant.configure("2") do |config|
