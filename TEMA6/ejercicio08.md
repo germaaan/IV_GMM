@@ -22,27 +22,27 @@ Vagrant.configure("2") do |config|
   config.vm.box = "debian"
   config.vm.network :private_network, ip: "192.168.2.50"
 
-  config.vm.provision :ansible do |ansible| 
+  config.vm.provision "ansible" do |ansible| 
     ansible.playbook = "playbook.yml"
   end
 
 end
 ```
 
-El contenido del playbook es básico, hacer lo mismo que los scripts del ejercicio anterior, instalar Nginx y comprobar que se está ejecutando.
+El contenido del playbook es básico, actualiza la cache (sin hacer esto me daba constantes problemas al intentar realizar la instalación) y realiza la instalación de Nginx.
 
 ```
 ---
-- hosts: all
+- hosts: vagrant
   sudo: yes
   tasks:
+    - name: Actualizar lista de paquetes
+      apt: update_cache=yes
     - name: Instalar Nginx
       apt: name=nginx state=present
-    - name: Comprobar Nginx
-      command: service nginx restart && service nginx status
 ```
 
-Solo queda comprobar que funcione, pero no funciona, aunque se incluya la directiva **inventory_path** para indicar la ruta de un archivo inventario con los host controlados.
+Para aprovisionar solo nos queda hacer uso del **provision** que acabamos de configurar.
 
 
 ```
@@ -50,3 +50,7 @@ vagrant provision
 ```
 
 ![eje08_img02](imagenes/eje08_img02.png)
+
+Si ahora accedemos desde una navegador a la dirección IP de la máquina virtual, veremos que el servidor funciona correctamente.
+
+![eje08_img03](imagenes/eje08_img03.png)

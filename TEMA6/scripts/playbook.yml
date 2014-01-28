@@ -1,8 +1,8 @@
 ---
-- hosts: all
+- hosts: vagrant
   sudo: yes
   tasks:
+    - name: Actualizar lista de paquetes
+      apt: update_cache=yes
     - name: Instalar Nginx
       apt: name=nginx state=present
-    - name: Comprobar Nginx
-      command: service nginx restart && service nginx status
