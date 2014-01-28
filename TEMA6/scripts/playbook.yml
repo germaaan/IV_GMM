@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Instalar Nginx
+      apt: name=nginx state=present
+    - name: Comprobar Nginx
+      command: service nginx restart && service nginx status

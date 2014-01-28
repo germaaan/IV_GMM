@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian"
+  config.vm.network :private_network, ip: "192.168.2.50"
+
+  #config.vm.provision "shell",
+    #inline: "sudo apt-get update && sudo apt-get install -y nginx && sudo service nginx restart && sudo service nginx status"
+    #path: "instala_nginx.sh"
+    #inline: "curl -s https://gist.github.com/germaaan/8667325/raw/f6854e9ea316d2a36ebd0498b7d701fa51d91842/instala_nginx.sh | sudo sh"
+
+  config.vm.provision "ansible" do |ansible| 
+    ansible.playbook = "playbook.yml"
+  end
+
+end
