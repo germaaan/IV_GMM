@@ -1,6 +1,7 @@
 ---
 - hosts: azure
   sudo: yes
+  remote_user: germaaan
   tasks:
     - name: Instalar Python y EasyInstall
       apt: name=build-essential state=present
@@ -10,7 +11,7 @@
       apt: name=mongodb-server state=present
     - name: Instalar módulos de Python necesarios
       command: easy_install web.py mako pymongo feedparser tweepy geopy
-    - name: Desplegar aplicación
-      command: chdir=/home/germaaan/dai_practica_4 python practica_4.py 8080 &
-      async: 50
-      poll: 0
+    - name: Crear servicio upstart
+      template: src=dai.conf dest=/etc/init/dai.conf owner=root group=root mode=0644
+    - name: Iniciar aplicación
+      service: name=dai state=running

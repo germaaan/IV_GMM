@@ -3,7 +3,7 @@
 
 Una vez que ya tenemos los fuentes de la aplicación en nuestro servidor, lo único que resta es desplegar dicha aplicación, para ello usaremos un playbook de Ansible. La aplicación está en realizada en Python y usa diversos módulos, por lo que antes de ejecutar la aplicación deberemos instalar el propio **Python** y el paquete **EasyInstall** para instalar los módulos (no he instalado **pip** porque daba errores en la ejecución). Además, como base de datos instalaremos **MongoDB**.
 
-Como tendrá que atender conexiones con los clientes que se conectan a la misma y conexiones a la base de datos de los mismos, las conexiones deberán permanecer abiertas hasta que la tarea se realice, por lo que deberemos establecer que la aplicación funcione en modo asíncrono con una duración relativamente larga (en este caso, **async: 50**, porque si el valor de tiempo de ejecución máximo es inferior a 50, secciones como la de Twitter o Google Maps comienzan a dar problemas). Como no es necesario que la conexión espere hasta que la tarea se complete, indicamos un valor de sondeo de finalización es 0 (**poll: 0**).
+Para la ejecución de la aplicación durante el despliegue, la opción más fácil es convertir nuestra aplicación en un servicio Upstart que podamos manejar mediante `service` para iniciar, parar o reiniciar. Para esto tendremos que crear un script upstart que contenga como iniciar el programa, mediante `template` indicar con `src` la ruta del script en la máquina local y con `dest` indicar la ruta en donde se copiará el script en la máquina aprovisionada (para que podamos usarlo como servicio upstart, el script tiene que estar en la carpeta **/etc/init**). Finalmente con `service` indicamos que la aplicación tiene que estar en ejecución, así que señalamos que tiene que tener `state=running`.
 
 * **Playbook "dai.yml"**
 
@@ -11,6 +11,7 @@ Como tendrá que atender conexiones con los clientes que se conectan a la misma 
 ---
 - hosts: azure
   sudo: yes
+  remote_user: germaaan
   tasks:
     - name: Instalar Python y EasyInstall
       apt: name=build-essential state=present
@@ -20,11 +21,24 @@ Como tendrá que atender conexiones con los clientes que se conectan a la misma 
       apt: name=mongodb-server state=present
     - name: Instalar módulos de Python necesarios
       command: easy_install web.py mako pymongo feedparser tweepy geopy
-    - name: Desplegar aplicación
-      command: chdir=/home/germaaan/dai_practica_4 python practica_4.py 8080 &
-      async: 50
-      poll: 0
+    - name: Crear servicio upstart
+      template: src=dai.conf dest=/etc/init/dai.conf owner=root group=root mode=0644
+    - name: Iniciar aplicación
+      service: name=dai state=running
 ```
+
+El script upstart simplemente ubica la ejecución en el directorio en el que se encuentra la aplicación (**/home/germaaan/dai_practica_4**) y la ejecuta para un acceso externo (por eso la IP **0.0.0.0**) y un puerto **8000**.
+
+* **Script upstart "dai.conf"**
+
+```
+script
+    cd /home/germaaan/dai_practica_4
+    python practica_4.py 0.0.0.0:8000
+end script
+```
+
+Solo queda ordenar el aprovisionamiento mediante `ansible-playbook`.
 
 ```
 ansible-playbook dai.yml
@@ -32,7 +46,12 @@ ansible-playbook dai.yml
 
 ![eje05_img01](imagenes/eje05_img01.png)
 
-Otro problema surgido ha sido con los puertos, la aplicación daba error si la establecíaa en el puerto 80, así que en la ejecución indico que se escuche el puerto 8080, y luego en la configuración de la máquina de Azure añado un **extremo HTTP** a la máquina virtual del **protocolo TCP** que permita conectarse mediante el **puerto público 80** (el puerto por defecto al que se conectarán los **navegadores**) y que internamente redigidirá al **puerto privado 8080** (el puerto que está escuchado nuestro **web.py**).
+Para que la aplicación pueda ser accesible, tenemos que añadir extremos a la máquina virtual, así que añadimos un extremo que usando el protocolo TCP reenvie la información del puerto 8000 privado (en el que está funcionando nuestra aplicación) al puerto público 80 (al que se podrá conectar cualquier navegador).
+
+```
+azure vm endpoint create -n http germaaansible 80 8000
+azure vm endpoint list germaaansible
+```
 
 ![eje05_img02](imagenes/eje05_img02.png)
 
