@@ -86,22 +86,15 @@ sudo service nginx start
 
 ![eje05_img11](imagenes/eje05_img11.png)
 
-El servidor ya está funcionando, pero no estará accesible hasta que indiquemos un **extremo** a la máquina virtual, como no he encontrado la forma de hacerlo desde terminal, lo haré desde la página web de gestión de Azure. Lo único que tenemos que hacer es seleccionar nuestra máquina virtual de la página de máquinas virtuales accesible desde el panel de la izquierda, y entrar en la sección **"Extremos"**. Vemos que solo está activado el acceso mediante SSH que indicamos cuando creamos la máquina virtual:
+El servidor ya está funcionando, pero no estará accesible hasta que indiquemos un **extremo** a la máquina virtual, así que tenemos que crear un extremo que mediante protocolo **TCP** se conecte al puerto **80** para que los navegadores puedan acceder a el.
+
+```
+azure vm endpoint create -n http germaaanbuntu 80 80
+azure vm endpoint list germaaanbuntu
+```
 
 ![eje05_img12](imagenes/eje05_img12.png)
 
-Pulsamos el botón **"Añadir"** de la parte inferior y nos aparecerá la ventana para agregar nuevos extremos. Seleccionamos la opción **"Agregar extremo independiente"**:
+Así que solo nos queda comprobar que la dirección [http://germaaanbuntu.cloudapp.net](http://germaaanbuntu.cloudapp.net) es accesible y muestra nuestra página de inicio personalizada. Si la dirección no está accesible seguramente se deba a que he tenido que apagar la máquina virtual por necesitarla para otro ejercicio y tener que cumplir con las restricciones de nuestras cuentas de Azure.
 
 ![eje05_img13](imagenes/eje05_img13.png)
-
-Especificamos los detalles del extremo a crear, como queremos que sea un acceso web en nombre indicamos **"HTTP"**, protocolo **"TCP"** y puertos tanto público como privado el **"80"**.
-
-![eje05_img14](imagenes/eje05_img14.png)
-
-Comprobamos que se ha añadido un nuevo extremo **"HTTP"** a nuestra máquina virtual:
-
-![eje05_img15](imagenes/eje05_img15.png)
-
-Así que solo nos queda comprobar que la dirección [http://germaaanbuntu.cloudapp.net](http://germaaanbuntu.cloudapp.net) es accesible y muestra nuestra página de inicio personalizada.
-
-![eje05_img16](imagenes/eje05_img16.png)

@@ -20,9 +20,9 @@ Ahora para provisionar la máquina virtual simplemente es necesario introducir l
 * **--hostname autoUbuntu**: con nombre de la máquina autoUbuntu
 * **--domain autoUbuntu**: nombre de dominio autoUbuntu (si no hubiera problemas se podría usar para acceder desde virt-manager)
 
-´´´
+```
 sudo vmbuilder vmw6 ubuntu --suite precise --flavour server --arch i386 -o --dest /home/germaaan/VMs/autoUbuntu --hostname autoUbuntu --domain autoUbuntu
-´´´
+```
 
 ![eje07_img02](imagenes/eje07_img02.png)
 
